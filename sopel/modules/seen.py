@@ -38,14 +38,11 @@ def seen(bot, trigger):
         timestamp = format_time(bot.db, bot.config, tz, trigger.nick,
                                 trigger.sender, saw)
 
-        msg = "I last saw {} at {}".format(nick, timestamp)
+        msg = "{} {}: ".format(timestamp, nick)
         if Identifier(channel) == trigger.sender:
-            if action:
-                msg = msg + " in here, doing " + nick + " " + message
-            else:
-                msg = msg + " in here, saying " + message
+            msg += message
         else:
-            msg += " in another channel."
+            msg = "{} was last seen in another channel on {}.".format(nick, timestamp)
         bot.say(str(trigger.nick) + ': ' + msg)
     else:
         bot.say("Sorry, I haven't seen {} around.".format(nick))

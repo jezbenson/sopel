@@ -129,7 +129,7 @@ def format_time(db=None, config=None, zone=None, nick=None, channel=None,
     if not tformat and config and config.core.default_time_format:
         tformat = config.core.default_time_format
     if not tformat:
-        tformat = '%Y-%m-%d - %T%Z'
+        tformat = '%Y/%m/%d %T%Z'
 
     if not time:
         time = datetime.datetime.utcnow()
